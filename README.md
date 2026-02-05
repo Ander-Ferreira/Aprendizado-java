@@ -1,6 +1,6 @@
 # Aprendizado Java
 ***
-### Repositório com os exercícios de backend 2024 da faculdade, estará em construção por todo este ano em 2024 ->
+### Repositório com o aprendizado de Java 2026 ->
 ***
 - [x] Tipos, Classes, Métodos
 - [x] Herança
