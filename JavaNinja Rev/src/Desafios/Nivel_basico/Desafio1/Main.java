@@ -108,6 +108,8 @@ public class Main {
 
         }
 
+        caixaDeInput.close();
+
 
 
 
