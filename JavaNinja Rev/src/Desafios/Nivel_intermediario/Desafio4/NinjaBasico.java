@@ -37,11 +37,11 @@ public class NinjaBasico implements Ninja {
 
 
 
-//    @Override
-//    public String mostrarInformacoes() {
-//        return "Nome: " + nome + ", " + "Habilidade: " + habilidade + ", " + "Idade: " + idade;
-//
-//    }
+    @Override
+   public String mostrarInformacoes() {
+        return "Nome: " + nome + ", " + "Habilidade: " + habilidade + ", " + "Idade: " + idade;
+
+    }
 
 
     @Override
@@ -51,7 +51,7 @@ public class NinjaBasico implements Ninja {
 
     @Override
     public void executarHabilidade() {
-
+        System.out.println("Habilidade ativada: " + habilidade);
     }
 }
 

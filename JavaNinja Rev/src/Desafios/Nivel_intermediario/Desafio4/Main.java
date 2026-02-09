@@ -42,12 +42,14 @@ public class Main {
         int caixaDeIdade;
         String caixaDeEspecialidade;
         int opcao = 0;
+        int slot = 0;
 
         //Menu
-        while(opcao != 3){
+        while(opcao != 4){
             System.out.println("Tecle 1 para registrar um novo ninja");
             System.out.println("Tecle 2 para listar os ninjas");
-            System.out.println("Tecle 3 para sair");
+            System.out.println("Tecle 3 para executar a habilidade do ninja");
+            System.out.println("Tecle 4 para sair");
             opcao = caixaDeInput.nextInt();
 
             switch (opcao){
@@ -102,14 +104,44 @@ public class Main {
                     if(opcao == 1){
                         System.out.println(ninjasBasicos.getListaDeNinjas());
 
+
                     } else if (opcao == 2) {
                         System.out.println(ninjasAvancados.getListaDeNinjas());
 
                     }
                     break;
 
+                case 3:
+                    System.out.println("Digite 1 para ninjas basicos ou 2 para ninjas avançados");
+                    opcao = caixaDeInput.nextInt();
+                    if(opcao == 1){
+                        System.out.println("Digite o slot do ninja que deseja pesquisar");
+                        slot = caixaDeInput.nextInt();
+                        if(slot > ninjasBasicos.getListaDeNinjas().size()){
+                            System.out.println("Ninja não encontrado!");
+
+                        } else{
+                            System.out.println(ninjasBasicos.getListaDeNinjas().get(slot).getNome());
+                            ninjasBasicos.getListaDeNinjas().get(slot).executarHabilidade();
+                        }
+
+                    } else if (opcao == 2) {
+                        System.out.println("Digite o slot do ninja que deseja pesquisar");
+                        slot = caixaDeInput.nextInt();
+                        if(slot > ninjasAvancados.getListaDeNinjas().size()){
+                            System.out.println("Ninja não encontrado!");
+
+                        } else{
+                            System.out.println(ninjasAvancados.getListaDeNinjas().get(slot).getNome());
+                            ninjasAvancados.getListaDeNinjas().get(slot).executarHabilidade();
+                        }
+
+                    }
+
+                    break;
+
                 default:
-                    String ternario = (opcao == 3) ? "Saindo..." : "Opção inválida!";
+                    String ternario = (opcao == 4) ? "Saindo..." : "Opção inválida!";
                     System.out.println(ternario);
                     break;
 

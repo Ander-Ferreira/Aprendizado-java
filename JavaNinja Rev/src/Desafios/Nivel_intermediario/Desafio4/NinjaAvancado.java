@@ -22,11 +22,11 @@ public class NinjaAvancado extends NinjaBasico{
         this.especialidade = especialidade;
     }
 
-//    @Override
-//    public String mostrarInformacoes() {
-//        super.mostrarInformacoes();
-//        return "Especialidade: " + especialidade;
-//    }
+   @Override
+    public String mostrarInformacoes() {
+       super.mostrarInformacoes();
+      return "Especialidade: " + especialidade;
+   }
 
 
     @Override

@@ -6,6 +6,6 @@ public interface Ninja {
 //        detalhes do ninja e executarHabilidade() para
 //        fazer o ninja usar sua habilidade.
 
-//    String mostrarInformacoes();
-    void executarHabilidade();
+      String mostrarInformacoes();
+      void executarHabilidade();
 }
