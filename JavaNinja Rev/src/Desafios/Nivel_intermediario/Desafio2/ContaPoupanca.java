@@ -8,6 +8,24 @@ public class ContaPoupanca extends ContaBancaria{
 //        taxa de depósito (por exemplo, deduzir 1% do
 //            valor depositado).
 double deducao = 0;
+int id = 20;
+TipoConta tipoDeConta;
+
+//Meus construtores
+public ContaPoupanca(){
+
+}
+
+public ContaPoupanca(String nome, TipoConta tipoDeConta){
+    super(nome);
+    this.id = id++;
+    this.tipoDeConta = tipoDeConta;
+}
+
+//Meus getter de id
+public int getId() {
+        return id;
+    }
 
 
     //Meu método para  depositar valor
@@ -17,5 +35,10 @@ double deducao = 0;
         deducao = (valor * 0.01) / 100;
         saldo = saldo - deducao;
 
+    }
+
+    @Override
+    public void consultarSaldo() {
+        System.out.println("Nome: " + nome + "Saldo: " + saldo + "Conta: " + tipoDeConta + "Numero da conta: " + id);
     }
 }

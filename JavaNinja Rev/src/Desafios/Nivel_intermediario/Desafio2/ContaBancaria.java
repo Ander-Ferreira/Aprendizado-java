@@ -4,10 +4,15 @@ public abstract class ContaBancaria implements Conta{
 
     double valor;
     double saldo;
+    String nome;
 
     //meus construtores
     public ContaBancaria(){
 
+    }
+
+    public ContaBancaria(String nome){
+         this.nome = nome;
     }
 
 
@@ -30,7 +35,7 @@ public abstract class ContaBancaria implements Conta{
     //Meu método para consultar saldo
     @Override
     public void consultarSaldo() {
-        System.out.println("Saldo: " + saldo);
+        System.out.println("Nome: " + nome + "Saldo: " + saldo);
 
 
     }
