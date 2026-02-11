@@ -29,7 +29,13 @@ public abstract class ContaBancaria implements Conta{
 
     @Override
     public void sacar(double valor) {
-        saldo = saldo -= valor;
+        if(saldo <= 0 || saldo < valor){
+            System.out.println("Saldo insuficiente!");
+
+        } else{
+            saldo = saldo -= valor;
+        }
+
     }
 
     //Meu método para consultar saldo
