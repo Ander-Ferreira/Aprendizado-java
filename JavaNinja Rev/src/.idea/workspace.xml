@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce64350e-3497-49ae-be28-c8f0a6425daa" name="Changes" comment="Subindo opções de criar conta bancária e conta corrente e transferência entre contas via número da conta (ID), e checagem de saldo também via número da conta (ID)">
+    <list default="true" id="ce64350e-3497-49ae-be28-c8f0a6425daa" name="Changes" comment="Pequena verificação de saldo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Desafios/Nivel_intermediario/Desafio2/ContaBancaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/Desafios/Nivel_intermediario/Desafio2/ContaBancaria.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +70,20 @@
       <option name="project" value="LOCAL" />
       <updated>1770770771516</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Pequena verificação de saldo">
+      <option name="closed" value="true" />
+      <created>1770851664539</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770851664539</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Subindo opções de criar conta bancária e conta corrente e transferência entre contas via número da conta (ID), e checagem de saldo também via número da conta (ID)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Subindo opções de criar conta bancária e conta corrente e transferência entre contas via número da conta (ID), e checagem de saldo também via número da conta (ID)" />
+    <MESSAGE value="Pequena verificação de saldo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequena verificação de saldo" />
   </component>
 </project>
