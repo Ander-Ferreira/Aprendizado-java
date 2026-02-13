@@ -11,6 +11,7 @@ public class Main {
         Scanner caixaDeInput = new Scanner(System.in);
         int caixaDeNumeros;
         int opcoes = 1;
+        int soma;
 
 
         while (opcoes != 0){
@@ -37,6 +38,10 @@ public class Main {
 
             System.out.println("Maior numero: " + maior);
             System.out.println("Menor numero: " + menor);
+
+            soma = maior + menor;
+
+            System.out.println("Soma de maior e menor: " + soma );
 
 
            System.out.println("Tecle 0 para sair ou 1 para continuar");
