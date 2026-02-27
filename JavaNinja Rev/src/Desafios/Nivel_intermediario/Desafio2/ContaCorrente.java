@@ -6,7 +6,8 @@ public class ContaCorrente extends ContaBancaria{
 //        4. Implemente o método depositar(double valor)
 //        para adicionar o valor ao saldo.
 
-    int id = 23;
+    static int contador = 20;
+    int id = 0;
     TipoConta tipoDeConta;
 
    //Meus construtores
@@ -17,7 +18,8 @@ public class ContaCorrente extends ContaBancaria{
     public ContaCorrente(String nome, TipoConta tipoDeConta){
         super(nome);
         this.tipoDeConta = tipoDeConta;
-        this.id = id++;
+        contador ++;
+        this.id = contador;
     }
 
     //Meus getter de id

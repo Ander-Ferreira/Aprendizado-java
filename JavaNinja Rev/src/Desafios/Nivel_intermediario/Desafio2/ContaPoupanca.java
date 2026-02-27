@@ -8,7 +8,8 @@ public class ContaPoupanca extends ContaBancaria{
 //        taxa de depósito (por exemplo, deduzir 1% do
 //            valor depositado).
 double deducao = 0;
-int id = 20;
+static int contador = 23;
+int id = 0;
 TipoConta tipoDeConta;
 
 //Meus construtores
@@ -18,7 +19,8 @@ public ContaPoupanca(){
 
 public ContaPoupanca(String nome, TipoConta tipoDeConta){
     super(nome);
-    this.id = id++;
+    contador++;
+    this.id = contador;
     this.tipoDeConta = tipoDeConta;
 }
 
