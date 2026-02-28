@@ -47,6 +47,10 @@ public class Main {
                 .filter(ninja -> ninja.getIdade() > 18)
                 .forEach(System.out::println);
 
+        listaDeNinjas.stream()
+                .map(ninja -> ninja.getIdade() > 18 ? ninja.getNome() + " Maior de idade" : ninja.getNome() + " Menor de Idade")
+                .forEach(System.out::println);
+
 
 
 
