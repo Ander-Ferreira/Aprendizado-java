@@ -1,5 +1,5 @@
 package Nivel_avancado.Avancado_04;
-
+//
 public class Ninja {
     String nome;
     String vila;

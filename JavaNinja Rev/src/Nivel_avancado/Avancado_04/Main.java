@@ -30,7 +30,7 @@ public class Main {
                 .forEach(System.out::println);
 
         System.out.println("Nomes-----------------------");
-        //Neste stream estou comparando e ordenando os nomes de forma em que a capitalização não interfira
+        //Neste stream estou comparando e ordenando os nomes de forma em que a capitalização não interfiraa
         listaDeNinjas.stream()
                 .sorted((nome1, nome2) -> String.CASE_INSENSITIVE_ORDER.compare(nome1.getNome(), nome2.getNome()))
                 .forEach(System.out::println);
