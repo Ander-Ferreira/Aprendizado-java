@@ -35,6 +35,19 @@ public class Main {
                 .sorted((nome1, nome2) -> String.CASE_INSENSITIVE_ORDER.compare(nome1.getNome(), nome2.getNome()))
                 .forEach(System.out::println);
 
+        //Neste stream estou filtrando ninjas maiores de 18
+        System.out.println("Ninjas maiores de idade---------------------");
+//        listaDeNinjas.stream().forEach(ninja ->{
+//            if(ninja.getIdade() > 17){
+//                System.out.println(ninja.getNome());
+//            }
+//        });
+
+        listaDeNinjas.stream()
+                .filter(ninja -> ninja.getIdade() > 18)
+                .forEach(System.out::println);
+
+
 
 
     }
