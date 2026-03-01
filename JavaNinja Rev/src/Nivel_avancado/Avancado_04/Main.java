@@ -51,6 +51,26 @@ public class Main {
                 .map(ninja -> ninja.getIdade() > 18 ? ninja.getNome() + " Maior de idade" : ninja.getNome() + " Menor de Idade")
                 .forEach(System.out::println);
 
+        System.out.println("Filtrando ninja mais velho---------------------");
+        Ninja ninjaMaisVelho = listaDeNinjas.stream()
+                .max((ninja1, ninja2) -> Integer.compare(ninja1.getIdade(), ninja1.getIdade()))
+                .orElse(null);
+        System.out.println("O ninja mais velho é: " + ninjaMaisVelho );
+
+        System.out.println("Ninja mais novo-------------------------------");
+        Ninja ninjaMaisNovo = listaDeNinjas.stream()
+                        .min((ninja1, ninja2) -> Integer.compare(ninja1.getIdade(), ninja2.getIdade()))
+                         .orElse(null);
+        System.out.println("O ninja mais novo é: " + ninjaMaisNovo);
+
+
+        System.out.println("Ordenação por nome-----------------------");
+        listaDeNinjas.stream()
+                .sorted((ninja1, ninja2) -> ninja1.getNome().compareTo(ninja1.getNome()))
+                .forEach(System.out::println);
+
+
+
 
 
 
