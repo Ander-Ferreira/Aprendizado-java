@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController //Controlador para APIrest -> aqui falo para o java que isto é um controller
 @RequestMapping //Aqui estou mapeando minhas
-public class Controller {
+public class NinjaController {
 
     //Meu método de boas vindas
     @GetMapping("/boasvindas") // Aqui coloco a rota que quero mostrar minhas boas vindas

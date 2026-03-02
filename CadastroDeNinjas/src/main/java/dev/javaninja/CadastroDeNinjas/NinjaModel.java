@@ -9,10 +9,11 @@ public class NinjaModel {
 
     @Id //irá gerar id no banco de dados
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Estratégia para enumerar meus Id's na tabela (usa o auto increment do banco)
-    Long id;
-    String nome;
-    String email;
-    int idade;
+
+   private Long id;
+   private String nome;
+   private String email;
+   private int idade;
 
     //Meus construtores
     public NinjaModel(){
