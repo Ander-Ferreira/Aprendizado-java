@@ -1,6 +1,9 @@
-package dev.javaninja.CadastroDeNinjas;
+package dev.javaninja.CadastroDeNinjas.Ninjas;
 
+import dev.javaninja.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity //Aqui estou transformando esta classe em entidade para meu banco de dados
@@ -11,9 +14,16 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Estratégia para enumerar meus Id's na tabela (usa o auto increment do banco)
 
    private Long id;
+
    private String nome;
+
    private String email;
+
    private int idade;
+
+   @ManyToOne //Muitos ninjas para uma missão
+   @JoinColumn(name = "missoes_id") //Fusão da tabela de missões com a de ninja
+   private MissoesModel missoes;
 
     //Meus construtores
     public NinjaModel(){
@@ -46,6 +56,7 @@ public class NinjaModel {
     public void setIdade(int idade){
         this.idade = idade;
     }
+
 
 
 }
