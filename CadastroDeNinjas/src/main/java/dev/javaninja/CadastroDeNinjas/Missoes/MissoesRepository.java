@@ -14,5 +14,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //ORM é uma tradução do nosso Model para o banco de dados, já que o banco de dados fala outra linguagem,
 //ele basicamente gera o esquema de tabelas no banco de dados.
 
+//
 public interface MissoesRepository extends JpaRepository<MissoesModel, Long> {
 }
