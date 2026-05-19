@@ -23,11 +23,13 @@ public class NinjaModel {
 
    private Long id;
 
+   @Column(name = "nome")
    private String nome;
 
-   @Column(unique = true) //Emails não podem ser repetidos
+   @Column(name = "email", unique = true) //Emails não podem ser repetidos
    private String email;
 
+   @Column(name = "idade")
    private int idade;
 
    @ManyToOne //Muitos ninjas para uma missão
