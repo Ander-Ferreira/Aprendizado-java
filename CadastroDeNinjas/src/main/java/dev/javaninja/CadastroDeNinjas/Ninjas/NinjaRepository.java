@@ -1,4 +1,4 @@
 package dev.javaninja.CadastroDeNinjas.Ninjas;
 
-public class NinjaService {
+public interface NinjaRepository {
 }
