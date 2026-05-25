@@ -17,6 +17,8 @@ import java.util.List;
 @AllArgsConstructor //Cria um construtor com todos os argumentos por baixo dos pontos, e atualiza com novos atributos
 @Data //Cria  automaticamente meus getters e setters por baixo dos panos
 
+//Nunca modifique uma tabela por aqui depois que o banco de dados foi modificado, precisa ser via query no próprio banco
+
 public class NinjaModel {
     @Id //irá gerar id no banco de dados
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Estratégia para enumerar meus Id's na tabela (usa o auto increment do banco)
