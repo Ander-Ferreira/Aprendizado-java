@@ -3,7 +3,7 @@ package dev.javaninja.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("missoes") // vai redirecionar minhas requisições automaticamente para http://localhost/missoes/requisicoes
+@RequestMapping("missoes") // vai redirecionar minhas requisições automaticamente para http://localhost:8080/missoes/
 public class MissaoController {
 
     @GetMapping("/buscarmissoes")
