@@ -34,6 +34,9 @@ public class NinjaModel {
    @Column(name = "idade")
    private int idade;
 
+   @Column(name = "img_url")
+   private String imgUrl;
+
    @ManyToOne //Muitos ninjas para uma missão
    @JoinColumn(name = "missoes_id") //Fusão da tabela de missões com a de ninja
    private MissoesModel missoes;
