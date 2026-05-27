@@ -23,16 +23,18 @@ public class NinjaController {
     }
 
     //Mostrar todos os ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/buscar")
     public List<NinjaModel> buscarTodosNinjas(){
         return ninjaService.listarNinjas();
 
     }
 
     //Mostrar Ninja por Id (READ)
-    @GetMapping("/buscarid")
-    public String mostrarNinjaPorId(){
-        return "ninja por id";
+    @GetMapping("/buscar/{id}")
+    //O PathVariable pegará um valor diretamente do id diretamente da url como parâmetro
+    //Para que possa ser usado em minha busca
+    public NinjaModel mostrarNinjaPorId(@PathVariable Long id){
+        return ninjaService.buscarPorId(id);
     }
 
     //Atualizar Ninja (UPDATE)
