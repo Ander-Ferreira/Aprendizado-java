@@ -2,9 +2,19 @@ package dev.javaninja.CadastroDeNinjas.Ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController //Controlador para APIrest -> aqui falo para o java que isto é um controller
-@RequestMapping //Aqui estou mapeando minhas rotas
+@RequestMapping("ninja") //Aqui estou mapeando minhas rotas
 public class NinjaController {
+
+
+    //Injeção de dependencia para traser o objeto NinjaService com todos os métodos que criei
+    NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService){
+        this.ninjaService = ninjaService;
+    }
 
     //Criar Ninja (CREATE)
     @PostMapping("/cadastrar")
@@ -14,8 +24,9 @@ public class NinjaController {
 
     //Mostrar todos os ninjas (READ)
     @GetMapping("/todos")
-    public String buscarTodosNinjas(){
-        return "todos os ninjas!";
+    public List<NinjaModel> buscarTodosNinjas(){
+        return ninjaService.listarNinjas();
+
     }
 
     //Mostrar Ninja por Id (READ)
