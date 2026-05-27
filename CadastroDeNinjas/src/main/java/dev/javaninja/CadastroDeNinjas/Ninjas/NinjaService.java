@@ -28,4 +28,10 @@ public class NinjaService {
         return ninjaId.orElse(null);
     }
 
+    //Método para criar ninja
+    public NinjaModel cadastrarNinja(NinjaModel ninja){
+        //Recebo o ninja com todos os parâmetros do NinjaModel e salvo
+        return ninjaRepository.save(ninja);
+    }
+
 }

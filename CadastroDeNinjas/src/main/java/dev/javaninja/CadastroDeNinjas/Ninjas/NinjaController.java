@@ -18,8 +18,9 @@ public class NinjaController {
 
     //Criar Ninja (CREATE)
     @PostMapping("/cadastrar")
-    public String criarNinja(){
-        return "Ninja criado!";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+        //Requestbody me permitirá receber como json os parâmetros do objeto NinjaModel
+        return ninjaService.cadastrarNinja(ninja); //Aqui estou salvando
     }
 
     //Mostrar todos os ninjas (READ)
