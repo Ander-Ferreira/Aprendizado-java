@@ -1,5 +1,6 @@
 package dev.javaninja.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.javaninja.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class MissoesModel {
    private String dificuldade;
 
    @OneToMany(mappedBy = "missoes") //Uma missão para muitos ninjas
+   @JsonIgnore //Isso evita o looping de serialização quando tenho duas tabelas interligadas
    private List<NinjaModel> ninjas;
 
 
