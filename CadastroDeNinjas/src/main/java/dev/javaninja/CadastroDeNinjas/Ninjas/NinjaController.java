@@ -39,9 +39,10 @@ public class NinjaController {
     }
 
     //Atualizar Ninja (UPDATE)
-    @PutMapping("/atualizar")
-    public String atualizarNinja(){
-        return "Ninja atualizado";
+    //Para esta requisição irei precisar do id e também precisarei enviar um body
+    @PutMapping("/atualizar/{id}")
+    public NinjaModel atualizarNinja(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.alterarNinja(id, ninjaAtualizado);
     }
 
     //Deletar Ninja (DELETE)
@@ -50,5 +51,6 @@ public class NinjaController {
         ninjaService.deletarNinja(id);
         System.out.println("Ninja deletado com sucesso!");
     }
+
 
 }
