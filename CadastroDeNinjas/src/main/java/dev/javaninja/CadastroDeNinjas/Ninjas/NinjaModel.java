@@ -15,6 +15,7 @@ import java.util.List;
 //Notações Lombok
 @NoArgsConstructor //Cria um construtor sem argumentos por baixo dos panos
 @AllArgsConstructor //Cria um construtor com todos os argumentos por baixo dos pontos, e atualiza com novos atributos
+@Data
 
 //Nunca modifique uma tabela por aqui depois que o banco de dados foi modificado, precisa ser via query no próprio banco
 
@@ -40,39 +41,6 @@ public class NinjaModel {
    @JoinColumn(name = "missoes_id") //Fusão da tabela de missões com a de ninja
    private MissoesModel missoes;
 
-   //Meus getters e setters na mão, notações Lombok não estão funcionando na versão 4.0.3 do spring
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id){
-        this.id = id;
-    }
 
-    public String getNome(){
-        return nome;
-    }
-    public void setNome(String nome){
-        this.nome = nome;
-    }
 
-    public String getEmail(){
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade(){
-        return idade;
-    }
-    public void setIdade(int idade){
-        this.idade = idade;
-    }
-
-    public String getImgUrl(){
-        return imgUrl;
-    }
-    public void setImgUrl(String imgUrl){
-        this.imgUrl = imgUrl;
-    }
 }
