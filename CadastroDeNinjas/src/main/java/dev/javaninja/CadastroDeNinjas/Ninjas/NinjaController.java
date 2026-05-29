@@ -16,9 +16,9 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    //Criar Ninja (CREATE)
+    //Criar Ninja (CREATE) - Refatorado para usar o meu DTO
     @PostMapping("/cadastrar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
         //Requestbody me permitirá receber como json os parâmetros do objeto NinjaModel
         return ninjaService.cadastrarNinja(ninja); //Aqui estou salvando
     }
