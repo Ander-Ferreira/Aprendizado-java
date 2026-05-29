@@ -35,16 +35,17 @@ public class NinjaService {
         return ninjaId.orElse(null);
     }
 
-    //Método para criar ninja - refatorando para usar DTO
+    //Método para cadastrar ninja usando DTO
     public NinjaDTO cadastrarNinja(NinjaDTO ninjaDTO){
-        //Aqui estou dizendo que os atributos do meu DTO serão os atributos do meu NinjaModel
-        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
-        //Aqui estou salvando o ninjaModel no banco de dados, coloquei em uma variável para deixar organizado
-        ninjaModel = ninjaRepository.save(ninjaModel);
-        //Aqui estou dizendo que os atributos do meu ninjaModel serão os mesmos do que o meu NinjaDTO
-        //E retornando eles
-        return ninjaMapper.map(ninjaModel);
 
+        //Converte o DTO para Model/Entity
+        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+
+        //Salva o ninja no banco de dados
+        ninjaModel = ninjaRepository.save(ninjaModel);
+
+        //Converte o Model salvo para DTO e retorna
+        return ninjaMapper.map(ninjaModel);
     }
 
     //Método para deletar ninja - é void porque não estou retornando nada
