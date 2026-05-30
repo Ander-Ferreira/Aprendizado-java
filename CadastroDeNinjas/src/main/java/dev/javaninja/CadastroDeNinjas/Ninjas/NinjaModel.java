@@ -32,7 +32,7 @@ public class NinjaModel {
    private String email;
 
    @Column(name = "idade")
-   private int idade;
+   private Integer idade; //Modificando indade para Interger para não dar problema em requisições de put parciais
 
    @Column(name = "img_url")
    private String imgUrl;
