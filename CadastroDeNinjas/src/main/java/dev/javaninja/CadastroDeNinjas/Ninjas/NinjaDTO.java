@@ -14,7 +14,7 @@ public class NinjaDTO {
     private Long id;
     private String nome;
     private String email;
-    private int idade;
+    private Integer idade; //Modificando indade para Interger para não dar problema em requisições de put parciais
     private String imgUrl;
     private String rank;
     private MissoesModel missoes;
