@@ -25,23 +25,23 @@ public class NinjaController {
 
     //Mostrar todos os ninjas (READ)
     @GetMapping("/buscar")
-    public List<NinjaModel> buscarTodosNinjas(){
+    public List<NinjaDTO> buscarTodosNinjas(){
         return ninjaService.listarNinjas();
 
     }
 
-    //Mostrar Ninja por Id (READ)
+    //Mostrar Ninja por Id (READ) - refatorado para usar dto
     @GetMapping("/buscar/{id}")
     //O PathVariable pegará um valor diretamente do id diretamente da url como parâmetro
     //Para que possa ser usado em minha busca
-    public NinjaModel mostrarNinjaPorId(@PathVariable Long id){
+    public NinjaDTO mostrarNinjaPorId(@PathVariable Long id){
         return ninjaService.buscarPorId(id);
     }
 
-    //Atualizar Ninja (UPDATE)
+    //Atualizar Ninja (UPDATE) - refatorado para usar DTO
     //Para esta requisição irei precisar do id e também precisarei enviar um body
     @PutMapping("/atualizar/{id}")
-    public NinjaModel atualizarNinja(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+    public NinjaDTO atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado){
         return ninjaService.alterarNinja(id, ninjaAtualizado);
     }
 
