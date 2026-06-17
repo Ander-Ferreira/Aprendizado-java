@@ -39,7 +39,7 @@ public class NinjaService {
         //Se existir um NinjaModel dentro do Optional,
         //ele será convertido para NinjaDTO através do Mapper
         //Se o Optional estiver vazio, retornará o valor vazio
-        return ninjaId.map(ninjaMapper::map).orElseThrow(null);
+        return ninjaId.map(ninjaMapper::map).orElse(null);
     }
 
     //Método para cadastrar ninja usando DTO
