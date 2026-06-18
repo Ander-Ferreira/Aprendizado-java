@@ -1,35 +1,70 @@
 package dev.javaninja.CadastroDeNinjas.Missoes;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("missoes") // vai redirecionar minhas requisições automaticamente para http://localhost:8080/missoes/
 public class MissaoController {
 
-    @GetMapping("/buscarmissoes")
-    public String buscarMissoes(){
-        return "todas missões";
+    //Injeção de dependência do meu MissoesService
+    private MissoesService missoesService;
+    MissaoController(MissoesService missoesService){
+        this.missoesService = missoesService;
     }
 
-    @GetMapping("/buscarid")
-    public String buscarMissaoPorId(){
-        return "missao por id";
+    @GetMapping("/buscar")
+    //ResposeEntity me permiti retornar respostar http
+    //O tipo será uma lista porque estarei recebendo e retornando uma lista de DTO
+    public ResponseEntity<List<MissoesDTO>> buscarMissoes(){
+        List<MissoesDTO> missoes = missoesService.listarTodos();
+        return ResponseEntity.status(HttpStatus.OK).body(missoes);
     }
 
-    @PostMapping("/cadastrar")
-    public String cadastrarMissao(){
-        return "missao cadastrada";
+    @GetMapping("/buscar/{id}")
+    //O tipo será um generic porque precisarei retornar tipos diferentes, DTO para caso ache,
+    // mensagem String para caso não ache
+    public ResponseEntity<?> buscarMissaoPorId(@PathVariable Long id){
+        MissoesDTO missaoExiste = missoesService.buscarPorId(id);
+        if(missaoExiste != null){
+            return ResponseEntity.status(HttpStatus.OK).body(missaoExiste);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Missão não encontrada! " + "Id: " + id);
     }
 
-    @PutMapping("/atualizar")
-    public String atualizarMissao(){
-        return "Missao atualizada";
+
+    @PostMapping("/criar")
+    public ResponseEntity<String> cadastrarMissao(@RequestBody MissoesDTO missoesDTO){
+        missoesService.cadastrarMissao(missoesDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Missão criada com sucesso!");
     }
 
-    @DeleteMapping
-    public String deletarMissao(){
-        return "Missao deletada com sucesso";
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<?> atualizarMissao(@PathVariable Long id, @RequestBody MissoesDTO missoesDTO){
+       MissoesDTO missaoExiste = missoesService.buscarPorId(id);
+       if(missaoExiste != null){
+           missoesService.atualizarMissao(id, missoesDTO);
+           return ResponseEntity.status(HttpStatus.OK).body("Missão atualizada com sucesso!");
+       }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Missão não encontrada! " + "Id: " + id);
     }
+
+    @DeleteMapping("deletar/{id}")
+    public ResponseEntity<String> deletarMissao(@PathVariable Long id){
+        //Faço uma busca
+        MissoesDTO missaoExiste = missoesService.buscarPorId(id);
+       //Se  for encontrada, deleto a missão e retorno a mensagem com sucesso
+        if(missaoExiste != null){
+           missoesService.excluirMissao(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Missao deletada com sucesso!");
+       }
+        //Se não for encontrada, retorno uma mensagem de missão não encontrada
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Missão não encontrada! " + "Id: " + id);
+    }
+
 
 
 }
