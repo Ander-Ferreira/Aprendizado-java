@@ -1,12 +1,16 @@
 # Aprendizado Java
 ***
+
+Este repositório contém exemplos básicos de Java e primeiros passos com Spring Boot.
+
 ### Repositório com o aprendizado de Java 2026 ->
 ***
+
 - [x] Tipos, Classes, Métodos
 - [x] Herança
 - [x] Polimorfismo
 - [x] Encapsulamento
-- [x] Estrutura de Dados [Array, List, Stack, Queue, LinkedList, ArrayList, HashSet, LinkedHashSet, TreeSet], 
+- [x] Estrutura de Dados [Array, List, Stack, Queue, LinkedList, ArrayList, HashSet, LinkedHashSet, TreeSet]
 - [x] Construtores
 - [x] Classes Abstratas
 - [x] Interfaces
@@ -18,4 +22,5 @@
 - [x] Final
 - [x] Private e Getters e Setters
 - [x] ENUMS
-- [ ] TODO: Avançado, Spring, Leetcode 
+- [ ] TODO: Avançado, Spring, Leetcode
+- [ ] Spring Boot: Como rodar o primeiro programa (exemplo CadastroDeNinjas)
