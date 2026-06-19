@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 public class NinjaService {
 
     //Injeção de dependencia para trazer o objeto NinjaRepository com os métodos do JPA
-    private NinjaRepository ninjaRepository;
+    private final NinjaRepository ninjaRepository;
     //Adicionando o Mapper à injeção de dependência para usar o DTO
-    private NinjaMapper ninjaMapper;
+    private final NinjaMapper ninjaMapper;
 
     public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;

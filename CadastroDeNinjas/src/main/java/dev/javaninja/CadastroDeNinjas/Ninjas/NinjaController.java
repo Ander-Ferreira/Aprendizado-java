@@ -12,7 +12,7 @@ public class NinjaController {
 
 
     //Injeção de dependencia para traser o objeto NinjaService com todos os métodos que criei
-    NinjaService ninjaService;
+   private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
