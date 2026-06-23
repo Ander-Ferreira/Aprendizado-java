@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor //Cria um construtor sem argumentos por baixo dos panos
 @AllArgsConstructor //Cria um construtor com todos os argumentos por baixo dos pontos, e atualiza com novos atributos
 @Data
+@ToString(exclude = "missoes")
 
 //Nunca modifique uma tabela por aqui depois que o banco de dados foi modificado, precisa ser via query no próprio banco
 
