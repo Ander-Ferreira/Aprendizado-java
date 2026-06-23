@@ -1,5 +1,8 @@
 package dev.javaninja.CadastroDeNinjas.Ninjas;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +11,7 @@ import java.util.List;
 
 @RestController //Controlador para APIrest -> aqui falo para o java que isto é um controller
 @RequestMapping("ninja") //Aqui estou mapeando minhas rotas
+@Tag(name = "ninja", description = "Rotas de ninjas") //Documentação para o swagger
 public class NinjaController {
 
 
@@ -20,6 +24,12 @@ public class NinjaController {
 
     //Criar Ninja (CREATE) - Refatorado para usar o meu DTO
     @PostMapping("/cadastrar")
+
+    // ------ Documentação para o swagger -------
+    @Operation(summary = "Cadastro de ninja" , description = "Cadastro completo de ninja")
+    @ApiResponse(responseCode = "201", description = "Ninja cadastrado com sucesso")
+    // --------------------------------------------
+
     //Refatorando com ResponseEntity para gerar códigos de repostas para o usuário,
     //a resposta do meu ResponseEntity sempre deve correspeonder o tipo, que neste caso será uma String.
     public ResponseEntity<String> criarNinja(@RequestBody NinjaDTO ninja) {
@@ -31,6 +41,12 @@ public class NinjaController {
 
     //Mostrar todos os ninjas (READ)
     @GetMapping("/buscar")
+
+    // ------ Documentação para o swagger -------
+    @Operation(summary = "Listar Ninjas", description = "Retorna a lista de todos os ninjas cadastrados")
+    @ApiResponse(responseCode = "200", description = "Ninjas listados com sucesso")
+    //-------------------------------------------
+
     //Refatorando com ResponseEntity para gerar códigos de repostas para o usuário,
     //aqui como pretendo listar todos os ninjas, o tipo do meu response entity será um List com todos os ninjas.
     public ResponseEntity<List<NinjaDTO>> buscarTodosNinjas() {
@@ -41,6 +57,14 @@ public class NinjaController {
 
     //Mostrar Ninja por Id (READ) - refatorado para usar dto
     @GetMapping("/buscar/{id}")
+
+    // ------ Documentação para o swagger -------
+    @Operation( summary = "Busca ninjas por id",
+            description = "Busca o ninja por id, se encontrado retorna o ninja, caso não exista (seja null) retorna uma mensagem 404")
+    @ApiResponse(responseCode = "200", description = "Ninja encontrado")
+    @ApiResponse(responseCode = "404", description = "Ninja não encontrado")
+    // ------------------------------------------
+
     //O PathVariable pegará um valor diretamente do id diretamente da url como parâmetro,
     //para que possa ser usado em minha busca.
     //Refatorando com ResponseEntity para gerar códigos de repostas para o usuário.
@@ -59,6 +83,14 @@ public class NinjaController {
     //Atualizar Ninja (UPDATE) - refatorado para usar DTO
     //Para esta requisição irei precisar do id e também precisarei enviar um body
     @PutMapping("/atualizar/{id}")
+
+    // ------ Documentação para o swagger -------
+    @Operation(summary = "Atualizar ninjas por id",
+            description = "Buscar o ninja por id, se encontrado envia-se um corpo de atualização, caso não exista (seja null) retorna uma mensagem 404")
+    @ApiResponse(responseCode = "201", description = "Ninja alterado com sucesso")
+    @ApiResponse(responseCode = "404", description = "Ninja não encontrado")
+    //-------------------------------------------
+
     //Refatorando com ResponseEntity para gerar códigos de repostas para o usuário
     //Uso um generic <?> para poder retornar qualquer tipo na resposta
     public ResponseEntity<?> atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado) {
@@ -67,7 +99,7 @@ public class NinjaController {
         NinjaDTO ninja = ninjaService.alterarNinja(id, ninjaAtualizado);
         //Se o ninja existe, retorno a mensagem de alterado junto com o Id
         if (ninja != null) {
-            return ResponseEntity.status(HttpStatus.OK).body(ninja);
+            return ResponseEntity.status(HttpStatus.CREATED).body(ninja);
         }
         //Se o ninja for null, retorno uma mensagem de não encontrado
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ninja não encontrado!");
@@ -78,6 +110,14 @@ public class NinjaController {
 
     //Deletar Ninja (DELETE)
     @DeleteMapping("/deletar/{id}")
+
+    // ------ Documentação para o swagger -------
+    @Operation(summary = "Deletar ninja por id",
+            description = "Busca o ninja por id, se encontrado exclui-se o ninja, caso não exista (seja null) retorna uma mensagem 404")
+    @ApiResponse(responseCode = "200", description = "Ninja excluído com sucesso")
+    @ApiResponse(responseCode = "404", description = "Ninja não encontrado")
+    //-------------------------------------------
+
     //Refatorando com ResponseEntity para gerar códigos de repostas para o usuário
     public ResponseEntity<String> deletarNinja(@PathVariable Long id) {
         //Faço uma busca
