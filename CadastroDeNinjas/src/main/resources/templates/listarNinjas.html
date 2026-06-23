@@ -1,0 +1,48 @@
+<!
+<html xmlns:th="http://thymeleaf.org"> <!--Aqui declaro o namespace th para ser reconhecido pelo thymeleaf-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Tabela de Ninjas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Lista de Ninjas</h1>
+
+<table>
+    <thead>
+         <tr>
+             <th>Imagem</th>
+             <th>Id</th>
+             <th>Nome</th>
+             <th>Email</th>
+             <th>Rank</th>
+             <th>Idade</th>
+             <th>Missão</th>
+         </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ninja: ${ninjas}"> <!--Loop de repetição do Thymeleaf para listar todos os ninjas, ninjas que estão vindo do meu NinjaControllerUi-->
+           <!--Informações dos Ninjas-->
+            <td><img th:src="${ninja.imgUrl}" width="100" height="100"></td>
+            <td th:text="${ninja.id}"></td>
+            <td th:text="${ninja.nome}"></td>
+            <td th:text="${ninja.email}"></td>
+            <td th:text="${ninja.rank}"></td>
+            <td th:text="${ninja.idade}"></td>
+            <td> <span th:if="${ninja.missoes}">Nome: <span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span> </span>
+                <span th:if="${ninja.missoes} == null">Sem missões!</span> </td>
+            <td>
+                <!--Botões-->
+                <!--Estou passando a rota, e depois estou colocando o id do ninja na rota dessa forma (id=${ninja.id}) -->
+                <a th:href="@{/ninja/ui/buscar/{id}(id=${ninja.id})}">Ver detalhes</a>
+                <a th:href="@{/ninja/ui/alterar/{id}(id=${ninja.id})}">Alterar</a>
+                <a th:href="@{/ninja/ui/deletar/{id}(id=${ninja.id})}">Deletar</a>
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
