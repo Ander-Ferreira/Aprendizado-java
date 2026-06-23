@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+thead {
+    background: #334155;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+tr {
+    border-bottom: 1px solid #334155;
+}
+
+tr:hover {
+    background: #273449;
+    transition: 0.2s;
+}
+
+/* Imagem */
+img {
+    border-radius: 50%;
+    border: 2px solid #38bdf8;
+}
+
+/* Botões */
+a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+    color: white;
+}
+
+/* Ver detalhes */
+a:nth-child(1) {
+    background: #22c55e;
+}
+
+a:nth-child(1):hover {
+    background: #16a34a;
+}
+
+/* Alterar */
+a:nth-child(2) {
+    background: #f59e0b;
+}
+
+a:nth-child(2):hover {
+    background: #d97706;
+}
+
+/* Deletar */
+a:nth-child(3) {
+    background: #ef4444;
+}
+
+a:nth-child(3):hover {
+    background: #b91c1c;
+}
+
+/* Responsivo básico */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        font-size: 12px;
+    }
+
+    a {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}

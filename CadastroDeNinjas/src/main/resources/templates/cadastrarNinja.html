@@ -1,0 +1,36 @@
+<!
+<html xmlns:th="http://thymeleaf.org"> <!--Aqui declaro o namespace th para ser reconhecido pelo thymeleaf-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Cadastrar Ninjas</title>
+    <link rel="stylesheet" href="/css/cadastrar.css">
+</head>
+<body>
+<h1>Cadastrar Ninja</h1>
+<div>
+    <div th:if="${mensagem}" th:text="${mensagem}"></div>
+    <!--Formulário de cadastro e atualização-->
+    <form th:action="@{/ninja/ui/cadastrar}" th:object="${ninja}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}"/>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}"/>
+        <label>Idade</label>
+        <input type="number" th:field="*{idade}"/>
+        <label>Imagem</label>
+        <input type="text" th:field="*{imgUrl}"/>
+        <label>Rank</label>
+        <input type="text" th:field="*{rank}"/>
+
+    <button type="submit" th:text="${ninja.id == null ? 'Cadastrar Ninja' : 'Alterar Ninja'}">Cadastrar Ninja</button>
+
+    </form>
+</div>
+
+
+<a href="/ninja/ui/buscar" class="btn-voltar">Voltar</a>
+
+
+</body>
+</html>
