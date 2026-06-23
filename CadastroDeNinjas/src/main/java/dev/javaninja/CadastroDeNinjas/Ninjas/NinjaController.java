@@ -87,7 +87,7 @@ public class NinjaController {
     // ------ Documentação para o swagger -------
     @Operation(summary = "Atualizar ninjas por id",
             description = "Buscar o ninja por id, se encontrado envia-se um corpo de atualização, caso não exista (seja null) retorna uma mensagem 404")
-    @ApiResponse(responseCode = "201", description = "Ninja alterado com sucesso")
+    @ApiResponse(responseCode = "200", description = "Ninja alterado com sucesso")
     @ApiResponse(responseCode = "404", description = "Ninja não encontrado")
     //-------------------------------------------
 
