@@ -71,7 +71,7 @@ public class MissaoController {
 
     // ------ Documentação para o swagger -------
     @Operation(summary = "Atualiza missão por id",
-            description = "Busca a missão por id, se encontrada retorna a missão, caso não exista (seja null) retorna uma mensagem 404")
+            description = "Busca a missão por id, se encontrada envia-se um corpo de atualização, caso não exista (seja null) retorna uma mensagem 404")
     @ApiResponse(responseCode = "200", description = "Missão alterada com sucesso")
     @ApiResponse(responseCode = "404", description = "Missão não encontrada")
     //-------------------------------------------
